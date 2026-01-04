@@ -1,0 +1,465 @@
+/* 学习界面样式 - 沉浸式学习 */
+
+.immersive-learning {
+  min-height: 100vh;
+  background: var(--global-wallpaper, #1a1a2e);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.immersive-learning::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.learning-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  position: relative;
+  z-index: 10;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.learning-header .back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.learning-header .back-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.progress-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress-indicator span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 模式标识 */
+.mode-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.mode-badge.learn {
+  background: rgba(76, 175, 80, 0.3);
+  color: #4CAF50;
+}
+
+.mode-badge.review {
+  background: rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+}
+
+.mini-progress {
+  width: 120px;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: #4CAF50;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.mini-progress-fill::after {
+  display: none;
+}
+
+.collect-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collect-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.collect-btn.collected {
+  color: #FFB800;
+  background: transparent;
+}
+
+/* 单词卡片 */
+.word-card-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px 20px;
+  position: relative;
+  z-index: 10;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.word-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  animation: scaleIn 0.4s ease;
+}
+
+/* 内联进度点 - 单词旁边竖排 */
+.inline-stage-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 2px;
+}
+
+.inline-stage-dots .stage-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+}
+
+.inline-stage-dots .stage-dot.filled {
+  background: #4CAF50;
+}
+
+.word-text {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.pronunciation-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pronunciation-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.pronunciation-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+}
+
+.word-phonetic {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 24px 0;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.word-phonetic .pronunciation-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.word-phonetic .pronunciation-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.word-phonetic::before {
+  content: '英';
+  font-size: 11px;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.2);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.test-hint {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+/* 测试选项 */
+.test-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 20px;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+
+.test-word {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px 0;
+  animation: scaleIn 0.4s ease;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.test-phonetic {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 12px 0;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.test-phonetic::before {
+  content: '英';
+  font-size: 11px;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.2);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.test-options {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+}
+
+.test-option {
+  width: 100%;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: cardAppear 0.3s ease backwards;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.test-option .option-pos {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+}
+
+.test-option:nth-child(1) { animation-delay: 0.05s; }
+.test-option:nth-child(2) { animation-delay: 0.1s; }
+.test-option:nth-child(3) { animation-delay: 0.15s; }
+.test-option:nth-child(4) { animation-delay: 0.2s; }
+
+.test-option:hover:not(:disabled) {
+  background: rgba(255,255,255,0.2);
+}
+
+.test-option:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.test-option.selected {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #fff;
+}
+
+.test-option.correct {
+  background: rgba(76, 175, 80, 0.3);
+  border-color: rgba(76, 175, 80, 0.5);
+  color: #fff;
+}
+
+.test-option.wrong {
+  background: rgba(244, 67, 54, 0.3);
+  border-color: rgba(244, 67, 54, 0.5);
+  color: #fff;
+}
+
+.test-score {
+  color: #FF9800;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* 底部看答案按钮 */
+.learning-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.show-answer-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 12px 24px;
+  position: relative;
+}
+
+.show-answer-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: #f44336;
+  border-radius: 1px;
+}
+
+.show-answer-btn:hover {
+  color: #fff;
+}
+
+.next-btn {
+  margin-top: 24px;
+  padding: 14px 40px;
+  background: #4CAF50;
+  border: none;
+  border-radius: 24px;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.next-btn:hover {
+  background: #43A047;
+}
+
+.next-btn:active {
+  transform: scale(0.98);
+}
+
+/* 答案详情界面 */
+.answer-detail {
+  background: var(--global-wallpaper, #1a1a2e);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.answer-detail .learning-header {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 学习阶段指示器 */
+.learning-stage-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 16px;
+}
+
+.stage-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.stage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.stage-dot.filled {
+  background: #6366f1;
+}
+
+.stage-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}

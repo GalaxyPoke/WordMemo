@@ -1,0 +1,402 @@
+/* 日历页面样式 */
+
+.calendar-page {
+  min-height: 100vh;
+  background: var(--global-wallpaper, #1a1a2e);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.calendar-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: transparent;
+}
+
+.calendar-page-header .back-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.calendar-page-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.calendar-container {
+  background: rgba(255,255,255,0.01);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 16px;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.month-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.month-nav {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+
+.month-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.weekday-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.weekday-name {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  padding: 8px 0;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px 4px;
+}
+
+.day-cell {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+}
+
+.day-cell.empty {
+  color: transparent;
+}
+
+.day-cell.today {
+  background: #f97316;
+  color: white;
+  font-weight: 600;
+}
+
+.day-cell.studied:not(.today) {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+/* 热力图等级 */
+.day-cell.heat-0 { background: #ebedf0; }
+.day-cell.heat-1 { background: #9be9a8; color: #1a4731; }
+.day-cell.heat-2 { background: #40c463; color: #166534; }
+.day-cell.heat-3 { background: #30a14e; color: white; }
+.day-cell.heat-4 { background: #216e39; color: white; }
+
+.day-cell.today {
+  background: #f97316 !important;
+  color: white !important;
+}
+
+.day-cell.selected {
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+.day-cell:not(.empty) {
+  cursor: pointer;
+}
+
+/* 热力图图例 */
+.heat-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+.heat-scale {
+  display: flex;
+  gap: 4px;
+}
+
+.heat-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.heat-box.heat-0 { background: #ebedf0; }
+.heat-box.heat-1 { background: #9be9a8; }
+.heat-box.heat-2 { background: #40c463; }
+.heat-box.heat-3 { background: #30a14e; }
+.heat-box.heat-4 { background: #216e39; }
+
+/* 日历网格 */
+.weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.weekday-label {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-day {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.cal-day:not(.empty):hover {
+  transform: scale(1.1);
+}
+
+.cal-day.empty {
+  background: transparent !important;
+  cursor: default;
+  visibility: hidden;
+}
+
+/* 橙色热力图等级 */
+.cal-day.level-0 { background: #f3f4f6; color: #6b7280; }
+.cal-day.level-1 { background: #ffedd5; color: #9a3412; }
+.cal-day.level-2 { background: #fdba74; color: #9a3412; }
+.cal-day.level-3 { background: #f97316; color: white; }
+.cal-day.level-4 { background: #c2410c; color: white; }
+
+.cal-day.today:not(.level-0) {
+  outline: 2px solid #f97316;
+  outline-offset: -2px;
+  font-weight: 600;
+}
+
+.cal-day.today.level-0 {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.cal-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+.legend-boxes {
+  display: flex;
+  gap: 4px;
+}
+
+.legend-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.legend-box.level-0 { background: #f3f4f6; }
+.legend-box.level-1 { background: #ffedd5; }
+.legend-box.level-2 { background: #fdba74; }
+.legend-box.level-3 { background: #f97316; }
+.legend-box.level-4 { background: #c2410c; }
+
+/* 本月统计卡片 */
+.month-stats-card {
+  background: rgba(255,255,255,0.01);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 16px;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.month-stats-card h3 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+
+.month-stats-card .stats-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.month-stats-card .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.month-stats-card .stat-item strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.month-stats-card .stat-item span {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* 签到统计卡片 */
+.checkin-stats-card {
+  background: rgba(255,255,255,0.01);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  margin: 0 16px 16px;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.checkin-stats-card .checkin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkin-stats-card .checkin-item .label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+.checkin-stats-card .checkin-item .value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.checkin-stats-card .checkin-item .value strong {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.checkin-stats-card .checkin-item .value span {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* 日期详情弹窗 */
+.day-detail {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  animation: slideUp 0.2s ease;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.detail-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.close-detail {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.detail-item span {
+  color: rgba(255,255,255,0.6);
+}
+
+.detail-item strong {
+  color: #fff;
+}
+
+.detail-empty {
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}

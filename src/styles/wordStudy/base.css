@@ -1,0 +1,143 @@
+/* 基础样式 - 动画、变量、容器 */
+
+/* 动画定义 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 全局壁纸背景变量 */
+:root {
+  --global-wallpaper: '';
+}
+
+/* 容器 */
+.word-study-container {
+  min-height: 100vh;
+  background: var(--global-wallpaper, #1a1a2e);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.word-study-container::before {
+  display: none;
+}
+
+/* 头部 */
+.word-study-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+
+.word-study-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(0,0,0,0.3);
+}
+
+/* 空状态 */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.empty-state svg {
+  opacity: 0.5;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.empty-state .sub {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* 加载指示器 */
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+
+.loading-indicator .spinning {
+  animation: spin 1s linear infinite;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>英语真题在线 - 按试卷排版设计</title>
+    <script>
+      // 在页面加载前立即设置壁纸，避免闪烁
+      (function() {
+        try {
+          var cached = localStorage.getItem('bing_wallpaper_cache');
+          if (cached) {
+            var data = JSON.parse(cached);
+            var today = new Date().toDateString();
+            if (data.date === today && (data.base64 || data.url)) {
+              var wallpaper = data.base64 || data.url;
+              document.documentElement.style.setProperty('--global-wallpaper', 'url(' + wallpaper + ')');
+            }
+          }
+        } catch(e) {}
+      })();
+    </script>
+    <style>
+      /* 默认深色背景，避免白色闪烁 */
+      html, body, #root {
+        background: #1a1a2e;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-D6RCvk0a.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DQXaRM9a.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

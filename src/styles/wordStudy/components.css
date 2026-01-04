@@ -1,0 +1,406 @@
+/* 通用组件样式 */
+
+/* 词书选择卡片 */
+.book-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.book-card:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.book-card:active {
+  transform: translateY(0);
+}
+
+.book-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+}
+
+.book-icon.orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+.book-icon.green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.book-icon.blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+.book-icon.purple { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+
+.book-info {
+  flex: 1;
+}
+
+.book-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.book-info .book-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.book-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-progress-bar {
+  width: 60px;
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.book-progress-fill {
+  height: 100%;
+  background: #6366f1;
+  border-radius: 2px;
+}
+
+.book-progress-text {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* 学习模式选择卡片 */
+.mode-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 16px;
+  background: white;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid transparent;
+}
+
+.mode-card:hover {
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.mode-card:active {
+  transform: scale(0.99);
+}
+
+.mode-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-icon.learn { 
+  background: linear-gradient(145deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.mode-icon.review { 
+  background: linear-gradient(145deg, #f59e0b 0%, #d97706 100%);
+  color: #fff;
+}
+
+.mode-icon.test { 
+  background: linear-gradient(145deg, #6366f1 0%, #4f46e5 100%);
+  color: #fff;
+}
+
+.mode-icon.sprint { 
+  background: linear-gradient(145deg, #1a1a1a 0%, #333 100%);
+  color: #fff;
+}
+
+.mode-icon svg {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.mode-info {
+  flex: 1;
+}
+
+.mode-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.3px;
+}
+
+.mode-info p {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.mode-card .mode-arrow {
+  color: #ccc;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.mode-card:hover .mode-arrow {
+  color: #999;
+  transform: translateX(4px);
+}
+
+/* 三档选择按钮 */
+.three-level-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.level-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.level-btn.know {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.level-btn.know:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.level-btn.fuzzy {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.level-btn.fuzzy:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.level-btn.unknown {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.level-btn.unknown:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.level-btn:active {
+  transform: scale(0.98);
+}
+
+/* 完成页面 */
+.completion-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.completion-icon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 24px;
+  animation: scaleIn 0.5s ease;
+}
+
+.completion-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.completion-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 32px 0;
+}
+
+.completion-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.completion-stat {
+  text-align: center;
+}
+
+.completion-stat .value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.completion-stat .label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.completion-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.completion-btn {
+  padding: 16px 32px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.completion-btn.primary {
+  background: #10b981;
+  color: white;
+}
+
+.completion-btn.primary:hover {
+  background: #059669;
+}
+
+.completion-btn.secondary {
+  background: white;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.completion-btn.secondary:hover {
+  background: #f9fafb;
+}
+
+/* 收藏页面 */
+.collection-page {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.collection-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.collection-header .back-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+  cursor: pointer;
+}
+
+.collection-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.collection-list {
+  padding: 16px;
+}
+
+.collection-word {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.collection-word .word-text {
+  flex: 1;
+}
+
+.collection-word .word-text h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.collection-word .word-text p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.collection-word .remove-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #fef2f2;
+  border-radius: 8px;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
